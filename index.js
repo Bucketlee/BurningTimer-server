@@ -1,8 +1,11 @@
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config();
 
 const router = require("./routes");
+const connectDatabase = require("./database/mongoose");
 
+connectDatabase();
 const app = express();
 
 app.use(
@@ -21,7 +24,7 @@ app.get("/", (req, res) => {
 
 app.use("/api", router);
 
-const port = 4000;
+const port = process.env.PORT || 4000;
 app.listen(port, () => {
   console.log(`서버가 ${port}번으로 연결되었습니다.`);
 });
