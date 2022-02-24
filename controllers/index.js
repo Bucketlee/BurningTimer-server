@@ -15,4 +15,10 @@ module.exports = {
   getLabels: require("./labels/getLabels"),
   updateLabel: require("./labels/updateLabel"),
   deleteLabel: require("./labels/deleteLabel"),
+
+  // categories
+  createCategory: require("./categories/createCategory"),
+  getCategories: require("./categories/getcategories"),
+  updateCategory: require("./categories/updateCategory"),
+  deleteCategory: require("./categories/deleteCategory"),
 };

@@ -6,7 +6,7 @@ const router = Router();
 
 router.post("/", createLabel);
 router.delete("/:labelId", deleteLabel);
-router.get("/:userId", getLabels);
+router.get("/", getLabels);
 router.put("/:labelId", updateLabel);
 
 module.exports = router;
