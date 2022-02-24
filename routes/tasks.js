@@ -6,6 +6,6 @@ const router = Router();
 
 router.get("/", getTasks);
 router.post("/", createTask);
-router.patch("/:id", updateTask);
+router.patch("/:taskId", updateTask);
 
 module.exports = router;
