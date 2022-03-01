@@ -30,8 +30,6 @@ describe("Node Server Request FindId Function.", () => {
     // then
     expect(statusCode).toEqual(400);
     expect(body.message).toEqual("Not found ID with that email");
-
-    done();
   });
 })
 
