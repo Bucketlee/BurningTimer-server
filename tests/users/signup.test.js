@@ -6,7 +6,7 @@ describe("Node Server Request Signup Function.", () => {
   it("Should answer POST requests for /api/signup with a 200 status code", async () => {
     // given
     const data = {
-      id: "test1",
+      username: "test1",
       password: "test1",
       email: "test1@test.com",
     }
@@ -23,9 +23,9 @@ describe("Node Server Request Signup Function.", () => {
   it("Should 400 when ID's already exists", async () => {
     // given
     const data = {
-      id: "test",
+      username: "test",
       password: "test1633",
-      email: "test@test.com"
+      email: "test1633@test.com"
     }
 
     // when
@@ -39,8 +39,8 @@ describe("Node Server Request Signup Function.", () => {
   it("Should 400 when email's already exists", async () => {
     // given
     const data = {
-      id: "test1",
-      password: "test1",
+      username: "test1633",
+      password: "test1633",
       email: "test@test.com"
     }
 
@@ -55,7 +55,7 @@ describe("Node Server Request Signup Function.", () => {
   it("Should 400 when email's invalid", async () => {
     // given
     const data = {
-      id: "test1",
+      username: "test1",
       password: "test1",
       email: "test"
     }
