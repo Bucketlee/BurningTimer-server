@@ -7,7 +7,7 @@ const category = new Schema(
   {
     userId: { type: String, required: true, ref: user },
     name: { type: String, required: true },
-    priority: { type: String, required: true },
+    priority: { type: Number, required: true },
   },
   {
     timestamps: true,
