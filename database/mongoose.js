@@ -1,6 +1,6 @@
-function connectDatabase() {
+function connectDatabase(isTest) {
   const mongoose = require("mongoose");
-  mongoose.connect(process.env.URI);
+  isTest ? mongoose.connect(process.env.TEST_URI) : mongoose.connect(process.env.URI);
 }
 
 module.exports = connectDatabase;

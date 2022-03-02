@@ -5,7 +5,8 @@ require("dotenv").config();
 const router = require("./routes");
 const connectDatabase = require("./database/mongoose");
 
-connectDatabase();
+process.env.NODE_ENV !== 'test' ? connectDatabase(false) : connectDatabase(true);
+
 const app = express();
 
 app.use(
