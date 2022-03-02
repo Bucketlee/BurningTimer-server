@@ -9,7 +9,7 @@ describe("Node Server Request createCategory Function.", () => {
     const token = "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpYXQiOjE2NDEwMjk3MjUsImV4cCI6MTY0MzYyMTcyNX0.6V0c77TqbpElBshZYWTXGhS4dWPdbhyBsXyYlt-0yfw";
     const data = {
       name: "test2",
-      priority: "1",
+      priority: "2",
     }
 
     // when
@@ -26,7 +26,7 @@ describe("Node Server Request createCategory Function.", () => {
     const token = "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R0ZXN0IiwiaWF0IjoxNjQxMDI5NzI1LCJleHAiOjE2NDM2MjE3MjV9.LzPxS16UfK1cKABQcm3KjS44I0Cn_LGw8k-6qIau1uQ";
     const data = {
       name: "test2",
-      priority: "1",
+      priority: "2",
     }
 
     // when
@@ -54,7 +54,21 @@ describe("Node Server Request createCategory Function.", () => {
     expect(body.message).toEqual("This category is already exists");
   });
 
-  done();
+  it("Should 400 when bad requests", async () => {
+    // given
+    // username = test;
+    const token = "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpYXQiOjE2NDEwMjk3MjUsImV4cCI6MTY0MzYyMTcyNX0.6V0c77TqbpElBshZYWTXGhS4dWPdbhyBsXyYlt-0yfw";
+    const data = {
+      name: "test3",
+    }
+
+    // when
+    const { body, statusCode } = await request(app).post("/api/categories").set("authorization", token).send(data);
+
+    // then
+    expect(statusCode).toEqual(400);
+    expect(body.message).toEqual("Request is incorrect");
+  });
 })
 
 afterAll(() => mongoose.disconnect());

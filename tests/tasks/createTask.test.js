@@ -50,8 +50,6 @@ describe("Node Server Request createTask Function.", () => {
     expect(statusCode).toEqual(401);
     expect(body.message).toEqual("Not Authorized");
   });
-
-  done();
 })
 
 afterAll(() => mongoose.disconnect());

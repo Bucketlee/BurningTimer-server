@@ -22,8 +22,8 @@ describe("Node Server Request deleteLabel Function.", () => {
     // given
     // test1 labelId
     const _id = "621e1e1309d6a471e0e8f606";
-    // username = test;
-    const token = "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpYXQiOjE2NDEwMjk3MjUsImV4cCI6MTY0MzYyMTcyNX0.6V0c77TqbpElBshZYWTXGhS4dWPdbhyBsXyYlt-0yfw";
+    // username = testtest
+    const token = "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R0ZXN0IiwiaWF0IjoxNjQxMDI5NzI1LCJleHAiOjE2NDM2MjE3MjV9.LzPxS16UfK1cKABQcm3KjS44I0Cn_LGw8k-6qIau1uQ";
 
     // when
     const { body, statusCode } = await request(app).delete(`/api/labels/${_id}`).set("authorization", token).send(data);
@@ -32,8 +32,6 @@ describe("Node Server Request deleteLabel Function.", () => {
     expect(statusCode).toEqual(401);
     expect(body.message).toEqual("Not Authorized");
   });
-
-  done();
 })
 
 afterAll(() => mongoose.disconnect());

@@ -56,8 +56,6 @@ describe("Node Server Request createLabel Function.", () => {
     expect(statusCode).toEqual(400);
     expect(body.message).toEqual("This label is already exists");
   });
-
-  done();
 })
 
 afterAll(() => mongoose.disconnect());

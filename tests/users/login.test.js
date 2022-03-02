@@ -7,7 +7,7 @@ describe("Node Server Request Login Function.", () => {
     // given
     const data = {
       username: "test",
-      password: "test1633",
+      password: "test",
     }
 
     // when
@@ -22,8 +22,8 @@ describe("Node Server Request Login Function.", () => {
   it("Should 401 when ID isn\'t exists", async () => {
     // given
     const data = {
-      username: "tests",
-      password: "tests",
+      username: "test10",
+      password: "test10",
     }
 
     // when
@@ -38,7 +38,7 @@ describe("Node Server Request Login Function.", () => {
     // given
     const data = {
       username: "test",
-      password: "test",
+      password: "test1",
     }
 
     // when

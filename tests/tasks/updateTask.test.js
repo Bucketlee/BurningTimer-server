@@ -38,8 +38,6 @@ describe("Node Server Request updateLabel Function.", () => {
     expect(statusCode).toEqual(401);
     expect(body.message).toEqual("Not Authorized");
   });
-
-  done();
 })
 
 afterAll(() => mongoose.disconnect());

@@ -59,8 +59,6 @@ describe("Node Server Request updateCategory Function.", () => {
     expect(statusCode).toEqual(400);
     expect(body.message).toEqual("This category is already exists");
   });
-
-  done();
 })
 
 afterAll(() => mongoose.disconnect());

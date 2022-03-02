@@ -8,7 +8,7 @@ describe("Node Server Request Signup Function.", () => {
     const data = {
       username: "test1",
       password: "test1",
-      email: "test1@test.com",
+      email: "test1@test.com"
     }
 
     // when
@@ -16,7 +16,7 @@ describe("Node Server Request Signup Function.", () => {
 
     // then
     expect(statusCode).toEqual(201);
-    expect(body.userInfo.username).toEqual("test1");
+    expect(body.userInfo.username).toEqual("test");
     expect(body.message).toEqual("Created");
   });
 
@@ -24,8 +24,8 @@ describe("Node Server Request Signup Function.", () => {
     // given
     const data = {
       username: "test",
-      password: "test1633",
-      email: "test1633@test.com"
+      password: "test2",
+      email: "test2@test.com"
     }
 
     // when
@@ -39,8 +39,8 @@ describe("Node Server Request Signup Function.", () => {
   it("Should 400 when email's already exists", async () => {
     // given
     const data = {
-      username: "test1633",
-      password: "test1633",
+      username: "test3",
+      password: "test3",
       email: "test@test.com"
     }
 
@@ -55,8 +55,8 @@ describe("Node Server Request Signup Function.", () => {
   it("Should 400 when email's invalid", async () => {
     // given
     const data = {
-      username: "test1",
-      password: "test1",
+      username: "test4",
+      password: "test4",
       email: "test"
     }
 
