@@ -27,7 +27,6 @@ module.exports = async function signup(req, res) {
 
   // create user
   try {
-    console.log(username, password, email);
     await User.create({ username, password, email });
     const userInfo = { username };
     return res.status(201).send({ userInfo, message: "Created" })

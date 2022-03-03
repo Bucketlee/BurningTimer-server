@@ -1,4 +1,5 @@
 const User = require("../../models/user");
+const createToken = require("../createToken");
 
 module.exports = async function login(req, res) {
   try {
@@ -17,10 +18,11 @@ module.exports = async function login(req, res) {
 
     // next phase
     const { username } = userInfo;
+    const accessToken = createToken({ username });
 
     return res
       .status(200)
-      .json({ userInfo: { username }, message: "Ok" });
+      .json({ accessToken, userInfo: { username }, message: "Ok" });
   } catch (err) {
     return res.status(500).send({ message: "Unexpected server error" });
   }
