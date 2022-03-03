@@ -12,7 +12,6 @@ module.exports = async function createCategory(req, res) {
   try {
     // category 중복 확인
     const user = await User.findOne({ username });
-    console.log("user", user);
     const data = await Category.findOne({ $and: [{ userId: user._id }, { name: name }] });
 
     if (data && data.priority !== 0) {
