@@ -18,7 +18,7 @@ module.exports = {
 
   // categories
   createCategory: require("./categories/createCategory"),
-  getCategories: require("./categories/getcategories"),
+  getCategories: require("./categories/getCategories"),
   updateCategory: require("./categories/updateCategory"),
   deleteCategory: require("./categories/deleteCategory"),
 };
