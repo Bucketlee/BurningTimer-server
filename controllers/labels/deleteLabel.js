@@ -8,17 +8,16 @@ module.exports = async function deleteLabel(req, res) {
   if (!labelId) {
     return res.status(400).send({ message: "Not found label ID" });
   }
-
   try {
     // 삭제 권한이 있는지 확인
     const user = await User.findOne({ username });
-    const { categoryId, name, priority } = await Label.findOne({ $and: [{ userId: user._id }, { categoryId }, { _id: labelId }] });
-
+    const { categoryId, name, priority } = await Label.findOne({ $and: [{ userId: user._id }, { _id: labelId }] });
     if (!name) {
       return res.status(400).send({ message: "Not found label with that ID" });
     }
 
     // 우선순위 업데이트
+    const test = await Label.find( {$and: [{ userId: user._id }, { categoryId }]});
     await Label.updateMany({ $and: [{ userId: user._id }, { categoryId }, { priority: { $gt: priority } }] }, { $inc: { priority: -1 } })
 
     // 라벨 비활성화
